@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("My Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="products" href="#">Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Products", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Add a Product", "Add", "Products")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Categories", "Categories", "Products")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="suppliers" href="#">Suppliers <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Suppliers", "Index", "Suppliers")</li>
+                            <li>@Html.ActionLink("Add a Supplier", "Add", "Suppliers")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Supplier Items", "Items", "Suppliers")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="inventory" href="#">Inventory <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Inventory", "Index", "Inventory")</li>
+                            <li>@Html.ActionLink("Items in Critical Level", "Critical", "Inventory")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Released Items", "Releasing", "Inventory")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="orders" href="#">Orders <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Sales Orders", "Index", "Sales")</li>
+                            <li>@Html.ActionLink("Add a Sales Order", "Add", "Sales")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="purchases" href="#">Purchases <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Purchase Orders", "Index", "Purchases")</li>
+                            <li>@Html.ActionLink("Pending Purchases", "Pending", "Purchases")</li>
+                            <li>@Html.ActionLink("Add a Purchase Order", "Add", "Purchases")</li>
+                            <li class="divider"></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="deliveries" href="#">Deliveries <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Deliveries", "Index", "Deliveries")</li>
+                            <li>@Html.ActionLink("Pending Deliveries", "Pending", "Deliveries")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="reports" href="#">Reports <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Users", "Users", "Reports")</li>
+                            <li>@Html.ActionLink("Products", "Products", "Reports")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Inventory", "Inventory", "Reports")</li>
+                            <li>@Html.ActionLink("Sales Orders Report", "Sales", "Reports")</li>
+                            <li>@Html.ActionLink("Purchases", "Purchases", "Reports")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Audit Logs", "Logs", "Reports")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="users" href="#">Users <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Users", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Add a User", "Add", "Users")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("View System Logs", "Logs", "Users")</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @ViewBag.User <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Profile", "Profile", "Account")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Shop</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

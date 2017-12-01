@@ -1,0 +1,33 @@
+﻿@model MyShopMVC.Models.ProductsModel
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<hr />
+<div class="col-lg-6">
+    <img src="../../Images/Products/@Html.DisplayFor(model => model.Image)" class="img-responsive" />
+
+
+
+</div>
+<div class="col-lg-6">
+    <div class="well clearfix">
+        <h3>Category: @Html.DisplayFor(model => model.Category)</h3>
+        <h4>Description</h4>
+        <p>@Html.DisplayFor(model => model.Description)</p>
+        <h4>Php @Html.DisplayFor(model => model.Price)</h4>
+        <div class="input-group col-lg-6">
+            <input name="quantity" type="number" min="1" value="1"
+                   max="100" class="form-control" required />
+            <span class="input-group-btn">
+                <button name="addtocart" class="btn btn-success">
+                    Add to Cart
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+
